@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Liquetsoft\Fias\Laravel\LiquetsoftFiasBundle\Entity\AddressObject as FiasAddressObject;
 
 class AddressObject extends FiasAddressObject
@@ -30,7 +29,7 @@ class AddressObject extends FiasAddressObject
      */
     public function scopeOnlyRegions($query)
     {
-        return $query->whereIn('aolevel', [1, 2]);
+        return $query->whereIn('aolevel', [1, 2])->where('actstatus', 1);
     }
 
     /**
@@ -39,7 +38,7 @@ class AddressObject extends FiasAddressObject
      */
     public function scopeOnlyCities($query)
     {
-        return $query->whereIn('aolevel', [4, 6]);
+        return $query->whereIn('aolevel', [4, 6])->where('actstatus', 1);
     }
 
     /**
@@ -48,20 +47,21 @@ class AddressObject extends FiasAddressObject
      */
     public function scopeOnlyStreets($query)
     {
-        return $query->where('aolevel', 7);
-    }
-
-    /**
-     * @param $query
-     * @return mixed
-     */
-    public function scopeOnlyHouses($query)
-    {
-        return $query->whereIn('aolevel', [8, 9]);
+        return $query->where('aolevel', 7)->where('actstatus', 1);
     }
 
     public function cities()
     {
-        return $this->hasMany(self::class, 'parentguid', 'aoid' )->onlyCities();
+        return $this->hasMany(self::class, 'parentguid', 'aoguid' )->onlyCities();
+    }
+
+    public function streets()
+    {
+        return $this->hasMany(self::class, 'parentguid', 'aoguid' )->onlyStreets();
+    }
+
+    public function houses()
+    {
+        return $this->hasMany(House::class, 'aoguid', 'aoguid' );
     }
 }
