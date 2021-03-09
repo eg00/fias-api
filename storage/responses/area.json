@@ -1,0 +1,39 @@
+{
+    "data": {
+        "id": "178aab04-a05b-4a76-9cd4-e10f631aff16",
+        "aoguid": "f8fa5b30-5020-476d-91b0-dcd6bd0054e6",
+        "parentguid": "f10763dc-63e3-48db-83e1-9c566fe3092b",
+        "name": "Каменский",
+        "shortname": "р-н",
+        "full_address": [
+            "р-н. Каменский",
+            "Ростовская область"
+        ],
+        "cities": [
+            {
+                "id": "aec8040c-ba5e-4c6d-b187-90c64f9d860d",
+                "aoguid": "4bf3723b-7abb-4066-80ba-ddca5e8437e1",
+                "parentguid": "f8fa5b30-5020-476d-91b0-dcd6bd0054e6",
+                "name": "Березовый",
+                "shortname": "х",
+                "full_address": [
+                    "х. Березовый",
+                    "р-н. Каменский",
+                    "Ростовская область"
+                ]
+            },
+            {
+                "id": "21927bee-31d5-4c9c-a168-c9b02c0d9e09",
+                "aoguid": "175d5dac-e289-48e2-b77b-6da2dd4b05c0",
+                "parentguid": "f8fa5b30-5020-476d-91b0-dcd6bd0054e6",
+                "name": "Васильевский",
+                "shortname": "п",
+                "full_address": [
+                    "п. Васильевский",
+                    "р-н. Каменский",
+                    "Ростовская область"
+                ]
+            }
+        ]
+    }
+}

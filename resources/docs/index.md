@@ -1,9 +1,10 @@
 ---
-title: Laravel Documentation
+title: FIAS API Documentation
 
 language_tabs:
 - bash
 - javascript
+- php
 
 includes:
 - "./prepend.md"
@@ -34,7 +35,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <script>
     var baseUrl = "http://fias1.test";
 </script>
-<script src="js/tryitout-2.4.2.js"></script>
+<script src="js/tryitout-2.5.3.js"></script>
 
 > Base URL
 

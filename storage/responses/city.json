@@ -1,0 +1,75 @@
+{
+    "data": {
+        "id": "12de5b32-b398-41d0-9364-41cdddd01357",
+        "aoguid": "dee2e80e-f2e1-4a68-93b0-b7b89b6f3e74",
+        "parentguid": "f10763dc-63e3-48db-83e1-9c566fe3092b",
+        "name": "Шахты",
+        "shortname": "г",
+        "full_address": [
+            "г. Шахты",
+            "Ростовская область"
+        ],
+        "streets": [
+            {
+                "id": "e0d16bc1-6789-4862-8004-7fa9fca3323a",
+                "aoguid": "8d8f11cd-13b3-4123-a353-2cfe0b295211",
+                "parentguid": "dee2e80e-f2e1-4a68-93b0-b7b89b6f3e74",
+                "name": "Полевой",
+                "shortname": "пер",
+                "full_address": [
+                    "пер. Полевой",
+                    "г. Шахты",
+                    "Ростовская область"
+                ]
+            },
+            {
+                "id": "fdfb4f3e-907d-4ff0-87fd-b634aaeb6fa0",
+                "aoguid": "f9c4b89b-d83b-4228-ac85-012281b3c8f3",
+                "parentguid": "dee2e80e-f2e1-4a68-93b0-b7b89b6f3e74",
+                "name": "Хетагурова",
+                "shortname": "ул",
+                "full_address": [
+                    "ул. Хетагурова",
+                    "г. Шахты",
+                    "Ростовская область"
+                ]
+            },
+            {
+                "id": "f8c6d39a-768b-4fec-8e44-d3ed30037e65",
+                "aoguid": "451000b2-58bf-4ab4-af61-7abadfe0e636",
+                "parentguid": "dee2e80e-f2e1-4a68-93b0-b7b89b6f3e74",
+                "name": "Бебеля",
+                "shortname": "ул",
+                "full_address": [
+                    "ул. Бебеля",
+                    "г. Шахты",
+                    "Ростовская область"
+                ]
+            },
+            {
+                "id": "2e11c5c9-1f65-4c5e-a6bc-770e6985268d",
+                "aoguid": "3b26bf1e-baa8-4861-8ff8-200715d8b8cf",
+                "parentguid": "dee2e80e-f2e1-4a68-93b0-b7b89b6f3e74",
+                "name": "Делегатская",
+                "shortname": "ул",
+                "full_address": [
+                    "ул. Делегатская",
+                    "г. Шахты",
+                    "Ростовская область"
+                ]
+            },
+            {
+                "id": "68da96d9-9674-4546-b36e-bf6f5573bfce",
+                "aoguid": "c344c8e1-fdec-4daf-8113-79831848d917",
+                "parentguid": "dee2e80e-f2e1-4a68-93b0-b7b89b6f3e74",
+                "name": "Добрынинский",
+                "shortname": "пер",
+                "full_address": [
+                    "пер. Добрынинский",
+                    "г. Шахты",
+                    "Ростовская область"
+                ]
+            }
+        ]
+    }
+}

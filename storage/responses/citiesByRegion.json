@@ -1,0 +1,37 @@
+{
+    "data": [
+        {
+            "id": "12de5b32-b398-41d0-9364-41cdddd01357",
+            "aoguid": "dee2e80e-f2e1-4a68-93b0-b7b89b6f3e74",
+            "parentguid": "f10763dc-63e3-48db-83e1-9c566fe3092b",
+            "name": "Шахты",
+            "shortname": "г",
+            "full_address": [
+                "г. Шахты",
+                "Ростовская область"
+            ]
+        },
+        {
+            "id": "b503a537-bbd1-4108-ab57-571b3c986c3e",
+            "aoguid": "c1cfe4b9-f7c2-423c-abfa-6ed1c05a15c5",
+            "parentguid": "f10763dc-63e3-48db-83e1-9c566fe3092b",
+            "name": "Ростов-на-Дону",
+            "shortname": "г",
+            "full_address": [
+                "г. Ростов-на-Дону",
+                "Ростовская область"
+            ]
+        },
+        {
+            "id": "8603c5a5-bdd9-4750-9bce-96b12e1f99b5",
+            "aoguid": "76cb0cf6-49a5-4852-b45d-99e4ce12a7ea",
+            "parentguid": "f10763dc-63e3-48db-83e1-9c566fe3092b",
+            "name": "Каменск-Шахтинский",
+            "shortname": "г",
+            "full_address": [
+                "г. Каменск-Шахтинский",
+                "Ростовская область"
+            ]
+        }
+    ]
+}

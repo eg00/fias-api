@@ -10,7 +10,12 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 class HouseController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @group Дома
+     *
+     * Список домов выбранной улицы по uuid.
+     *
+     * @urlParam uuid string required id улицы. Example: e0d16bc1-6789-4862-8004-7fa9fca3323a
+     * @responseFile storage/responses/houses.json
      *
      * @param string $uuid
      * @return ResourceCollection
@@ -23,14 +28,19 @@ class HouseController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @group Дома
+     *
+     * Список квартир выбранного дома по uuid.
+     *
+     * @urlParam uuid string required id дома. Example: 3bd992c2-f0a1-46ea-a634-695c5c033b86
+     * @responseFile storage/responses/house.json
      *
      * @param  string $uuid
      * @return HouseResource
      */
     public function show(string $uuid): HouseResource
     {
-        $house = House::query()->with('rooms')->findOrFail($uuid);
+        $house = House::query()->with('flats')->findOrFail($uuid);
 
         return new HouseResource($house);
     }

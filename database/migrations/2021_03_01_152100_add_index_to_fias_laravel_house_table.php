@@ -16,6 +16,7 @@ class AddIndexToFiasLaravelHouseTable extends Migration
         Schema::table('fias_laravel_house', function (Blueprint $table) {
             // создание индексов таблицы
             $table->index('aoguid');
+            $table->index('houseguid');
         });
     }
 
@@ -28,6 +29,7 @@ class AddIndexToFiasLaravelHouseTable extends Migration
     {
         Schema::table('fias_laravel_house', function (Blueprint $table) {
             $table->dropIndex('aoguid');
+            $table->dropIndex('houseguid');
         });
     }
 }

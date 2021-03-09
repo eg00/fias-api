@@ -9,6 +9,8 @@ class AddressObject extends FiasAddressObject
 {
     use HasFactory;
 
+    protected $appends = ['full_address'];
+
     //1 	Регион
     //2 	Автономный округ
     //3 	Район
@@ -23,6 +25,7 @@ class AddressObject extends FiasAddressObject
     //90 	Дополнительная территория
     //91 	Объект, подчиненный дополнительной территории
 
+
     /**
      * @param $query
      * @return mixed
@@ -30,6 +33,15 @@ class AddressObject extends FiasAddressObject
     public function scopeOnlyRegions($query)
     {
         return $query->whereIn('aolevel', [1, 2])->where('actstatus', 1);
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeOnlyAreas($query)
+    {
+        return $query->where('aolevel', 3)->where('actstatus', 1);
     }
 
     /**
@@ -50,18 +62,48 @@ class AddressObject extends FiasAddressObject
         return $query->where('aolevel', 7)->where('actstatus', 1);
     }
 
+    public function areas()
+    {
+        return $this->hasMany(self::class, 'parentguid', 'aoguid')->onlyAreas();
+    }
+
     public function cities()
     {
-        return $this->hasMany(self::class, 'parentguid', 'aoguid' )->onlyCities();
+        return $this->hasMany(self::class, 'parentguid', 'aoguid')->onlyCities();
     }
 
     public function streets()
     {
-        return $this->hasMany(self::class, 'parentguid', 'aoguid' )->onlyStreets();
+        return $this->hasMany(self::class, 'parentguid', 'aoguid')->onlyStreets();
     }
 
     public function houses()
     {
-        return $this->hasMany(House::class, 'aoguid', 'aoguid' );
+        return $this->hasMany(House::class, 'aoguid', 'aoguid')->distinct();
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(__CLASS__, 'parentguid', 'aoguid');
+    }
+
+    public function getFullAddressAttribute()
+    {
+        $address[] = match($this->aolevel) {
+            1 => "{$this->offname}",
+            default => "{$this->shortname}. {$this->formalname}",
+        };
+
+        $parent = $this->parent;
+        do {
+            $parent_address = match($parent->aolevel) {
+                1 => "{$parent->offname}",
+                default => "{$parent->shortname}. {$parent->formalname}",
+            };
+            $address[] = $parent_address;
+            $parent = $parent->parent;
+        } while ($parent);
+
+        return $address;
     }
 }
