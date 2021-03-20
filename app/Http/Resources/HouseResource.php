@@ -17,6 +17,7 @@ class HouseResource extends JsonResource
 //        return parent::toArray($request);
         return [
             'id' => $this->houseid,
+            'type' => 'houses',
             'houseguid' => $this->houseguid,
             'parentguid' => $this->aoguid,
             'housenum' => $this->housenum,

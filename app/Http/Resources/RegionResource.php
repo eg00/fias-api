@@ -16,6 +16,7 @@ class RegionResource extends JsonResource
     {
         return [
             'id' => $this->aoid,
+            'type' => 'regions',
             'aoguid' => $this->aoguid,
             'name' => $this->offname,
             'cities' => CityResource::collection($this->whenLoaded('cities')),

@@ -16,13 +16,13 @@ class CityResource extends JsonResource
     {
         return [
             'id' => $this->aoid,
+            'type' => 'cities',
             'aoguid' => $this->aoguid,
             'parentguid' => $this->parentguid,
             'name' => $this->formalname,
             'shortname' => $this->shortname,
             'full_address' => $this->full_address,
-//            'parent' => $this->parent->aolevel === 1? new RegionResource($this->parent): new AreaResource($this->parent),
-            'streets' => StreetResource::collection($this->whenLoaded('streets')),
+            'children' => StreetResource::collection($this->whenLoaded('streets')),
         ];
     }
 }

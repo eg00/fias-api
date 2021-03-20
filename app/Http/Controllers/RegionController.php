@@ -21,7 +21,9 @@ class RegionController extends Controller
      */
     public function index(): ResourceCollection
     {
-        $regions = AddressObject::onlyRegions()->get();
+        $regions = AddressObject::onlyRegions()
+        ->with(['cities', 'areas'])
+        ->get();
         return RegionResource::collection($regions);
 
     }
