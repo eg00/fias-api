@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6112d37c9f4bf695c3506ff096d0e6d1",
+    "content-hash": "4211fee63c057b11884d6c7e0ba784c8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -894,16 +894,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.32.1",
+            "version": "v8.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7c37b64f8153c16b6406f5c28cf37828ebbe8846"
+                "reference": "81892ca110795a9c46c7e198cba7763bfd2af0bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7c37b64f8153c16b6406f5c28cf37828ebbe8846",
-                "reference": "7c37b64f8153c16b6406f5c28cf37828ebbe8846",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/81892ca110795a9c46c7e198cba7763bfd2af0bf",
+                "reference": "81892ca110795a9c46c7e198cba7763bfd2af0bf",
                 "shasum": ""
             },
             "require": {
@@ -1058,7 +1058,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-03-09T15:37:45+00:00"
+            "time": "2021-03-23T15:12:51+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1382,16 +1382,16 @@
         },
         {
             "name": "liquetsoft/fias-component",
-            "version": "v7.3.1",
+            "version": "v8.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liquetsoft/fias-component.git",
-                "reference": "87b25210b1ec99f0fd77169699b07caf76cad8b9"
+                "reference": "3f9aa755a9201eb275ef39b78b03bf927b8ae000"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liquetsoft/fias-component/zipball/87b25210b1ec99f0fd77169699b07caf76cad8b9",
-                "reference": "87b25210b1ec99f0fd77169699b07caf76cad8b9",
+                "url": "https://api.github.com/repos/liquetsoft/fias-component/zipball/3f9aa755a9201eb275ef39b78b03bf927b8ae000",
+                "reference": "3f9aa755a9201eb275ef39b78b03bf927b8ae000",
                 "shasum": ""
             },
             "require": {
@@ -1401,7 +1401,8 @@
                 "ext-soap": "*",
                 "ext-xmlreader": "*",
                 "ext-zip": "*",
-                "php": ">=7.2",
+                "marvin255/file-system-helper": "^1.1",
+                "php": ">=7.3",
                 "psr/log": "^1.1",
                 "ramsey/uuid": "^3.0|^4.0",
                 "symfony/process": "^4.0|^5.0",
@@ -1410,8 +1411,8 @@
                 "symfony/serializer": "^4.0|^5.0"
             },
             "require-dev": {
+                "fakerphp/faker": "^1.7",
                 "friendsofphp/php-cs-fixer": "^2.16",
-                "fzaninotto/faker": "^1.7",
                 "phpunit/phpunit": "^7.0|^8.0|^9.0",
                 "sebastian/phpcpd": "^4.0|^5.0|^6.0",
                 "vimeo/psalm": "^4.0"
@@ -1432,33 +1433,33 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/liquetsoft/fias-component/tree/v7.3.1"
+                "source": "https://github.com/liquetsoft/fias-component/tree/v8.0.0"
             },
-            "time": "2020-12-20T20:36:03+00:00"
+            "time": "2021-02-26T10:32:21+00:00"
         },
         {
             "name": "liquetsoft/fias-laravel",
-            "version": "v7.0.1",
+            "version": "v8.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liquetsoft/fias-laravel.git",
-                "reference": "9851b84bd2232b12d00e6560397dd14416bec3e8"
+                "reference": "0e63ab8dec24241119bc7b56e6cd92657d012afb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liquetsoft/fias-laravel/zipball/9851b84bd2232b12d00e6560397dd14416bec3e8",
-                "reference": "9851b84bd2232b12d00e6560397dd14416bec3e8",
+                "url": "https://api.github.com/repos/liquetsoft/fias-laravel/zipball/0e63ab8dec24241119bc7b56e6cd92657d012afb",
+                "reference": "0e63ab8dec24241119bc7b56e6cd92657d012afb",
                 "shasum": ""
             },
             "require": {
                 "illuminate/database": "^5.8|^6.0|^7.0|^8.0",
                 "laravel/framework": "^5.8|^6.0|^7.0|^8.0",
-                "liquetsoft/fias-component": "^7.3",
-                "php": ">=7.2.0"
+                "liquetsoft/fias-component": "^8.0",
+                "php": ">=7.3"
             },
             "require-dev": {
+                "fakerphp/faker": "^1.7",
                 "friendsofphp/php-cs-fixer": "^2.11",
-                "fzaninotto/faker": "^1.7",
                 "nette/php-generator": "^3.2",
                 "phpunit/phpunit": "^8.0|^9.0",
                 "sebastian/phpcpd": "^4.0|^5.0|^6.0",
@@ -1489,9 +1490,53 @@
             ],
             "support": {
                 "issues": "https://github.com/liquetsoft/fias-laravel/issues",
-                "source": "https://github.com/liquetsoft/fias-laravel/tree/v7.0.1"
+                "source": "https://github.com/liquetsoft/fias-laravel/tree/v8.1.0"
             },
-            "time": "2020-12-20T22:36:20+00:00"
+            "time": "2021-03-06T11:15:08+00:00"
+        },
+        {
+            "name": "marvin255/file-system-helper",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marvin255/file-system-helper.git",
+                "reference": "dafd2e331a6f04b6951878a49c170292df94027c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marvin255/file-system-helper/zipball/dafd2e331a6f04b6951878a49c170292df94027c",
+                "reference": "dafd2e331a6f04b6951878a49c170292df94027c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpunit/phpunit": "^9.0",
+                "sebastian/phpcpd": "^5.0|^6.0",
+                "vimeo/psalm": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Marvin255\\FileSystemHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Simple helper for file system.",
+            "keywords": [
+                "file system",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/marvin255/file-system-helper/issues",
+                "source": "https://github.com/marvin255/file-system-helper/tree/v1.1.0"
+            },
+            "time": "2021-02-26T10:13:36+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8859,7 +8904,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4|^8.0"
+        "php": "^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"

@@ -19,8 +19,12 @@ class RegionResource extends JsonResource
             'type' => 'regions',
             'aoguid' => $this->aoguid,
             'name' => $this->offname,
-            'cities' => CityResource::collection($this->whenLoaded('cities')),
-            'areas' => AreaResource::collection($this->whenLoaded('areas')),
+//            'cities' => CityResource::collection($this->whenLoaded('cities')),
+//            'areas' => AreaResource::collection($this->whenLoaded('areas')),
+            'children' => array_merge(
+                CityResource::collection($this->whenLoaded('cities'))->toArray($request),
+                AreaResource::collection($this->whenLoaded('areas'))->toArray($request)
+            )
         ];
     }
 }

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Resources\HouseResource;
 use App\Models\AddressObject;
 use App\Models\House;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Support\Collection;
 
 class HouseController extends Controller
 {
@@ -35,7 +37,7 @@ class HouseController extends Controller
      * @urlParam uuid string required id дома. Example: 3bd992c2-f0a1-46ea-a634-695c5c033b86
      * @responseFile storage/responses/house.json
      *
-     * @param  string $uuid
+     * @param string $uuid
      * @return HouseResource
      */
     public function show(string $uuid): HouseResource
@@ -43,5 +45,18 @@ class HouseController extends Controller
         $house = House::query()->with('flats')->findOrFail($uuid);
 
         return new HouseResource($house);
+    }
+
+
+    public function batch(Request $request)
+    {
+        $houses = new Collection();
+
+        foreach ($request->ids as $id) {
+            $object = AddressObject::onlyStreets()->findOrFail($id)->houses()->with('flats')->get();
+            $houses = $houses->merge($object);
+        }
+
+        return HouseResource::collection($houses->unique());
     }
 }

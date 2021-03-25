@@ -23,5 +23,6 @@ Route::get('streets/{uuid}', [StreetController::class, 'show']);
 
 Route::get('streets/{uuid}/houses', [HouseController::class, 'index']);
 Route::get('houses/{uuid}', [HouseController::class, 'show']);
+Route::post('houses', [HouseController::class, 'batch']);
 
 Route::get('houses/{uuid}/flats', FlatController::class);

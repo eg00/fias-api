@@ -22,6 +22,7 @@ class StreetResource extends JsonResource
             'name' => $this->formalname,
             'shortname' => $this->shortname,
             'full_address' => $this->full_address,
+            'parent' => new CityResource($this->parent),
             'children' => HouseResource::collection($this->whenLoaded('houses')),
         ];
     }

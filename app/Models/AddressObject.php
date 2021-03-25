@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Liquetsoft\Fias\Laravel\LiquetsoftFiasBundle\Entity\AddressObject as FiasAddressObject;
 
@@ -9,7 +10,10 @@ class AddressObject extends FiasAddressObject
 {
     use HasFactory;
 
-    protected $appends = ['full_address'];
+//    protected $appends = ['full_address'];
+
+//    protected $with = ['children', 'houses'];
+
 
     //1 	Регион
     //2 	Автономный округ
@@ -25,6 +29,15 @@ class AddressObject extends FiasAddressObject
     //90 	Дополнительная территория
     //91 	Объект, подчиненный дополнительной территории
 
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('offname', 'asc');
+        });
+    }
 
     /**
      * @param $query
@@ -87,6 +100,11 @@ class AddressObject extends FiasAddressObject
         return $this->belongsTo(__CLASS__, 'parentguid', 'aoguid');
     }
 
+    public function children()
+    {
+        return $this->hasMany(self::class, 'parentguid', 'aoguid')->where('actstatus', 1);
+    }
+
     public function getFullAddressAttribute()
     {
         $address[] = match($this->aolevel) {
@@ -95,14 +113,14 @@ class AddressObject extends FiasAddressObject
         };
 
         $parent = $this->parent;
-        do {
+        while ($parent) {
             $parent_address = match($parent->aolevel) {
                 1 => "{$parent->offname}",
                 default => "{$parent->shortname}. {$parent->formalname}",
             };
             $address[] = $parent_address;
             $parent = $parent->parent;
-        } while ($parent);
+        } ;
 
         return $address;
     }

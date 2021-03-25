@@ -21,6 +21,7 @@ class HouseResource extends JsonResource
             'houseguid' => $this->houseguid,
             'parentguid' => $this->aoguid,
             'housenum' => $this->housenum,
+            'full_housenum' => $this->full_housenum,
             'full_address' => $this->full_address,
             'flats' => FlatResource::collection($this->whenLoaded('flats')),
         ];
