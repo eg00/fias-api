@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class RegionResource extends JsonResource
+class RegionResource extends RegionIndexResource
 {
     /**
      * Transform the resource into an array.
@@ -14,17 +14,12 @@ class RegionResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'id' => $this->aoid,
-            'type' => 'regions',
-            'aoguid' => $this->aoguid,
-            'name' => $this->offname,
-//            'cities' => CityResource::collection($this->whenLoaded('cities')),
-//            'areas' => AreaResource::collection($this->whenLoaded('areas')),
+        return array_merge(parent::toArray($request),[
             'children' => array_merge(
+                StreetResource::collection($this->whenLoaded('streets'))->toArray($request),
                 CityResource::collection($this->whenLoaded('cities'))->toArray($request),
-                AreaResource::collection($this->whenLoaded('areas'))->toArray($request)
+                AreaResource::collection($this->whenLoaded('areas'))->toArray($request),
             )
-        ];
+        ]);
     }
 }

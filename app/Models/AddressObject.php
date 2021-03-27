@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
 use Liquetsoft\Fias\Laravel\LiquetsoftFiasBundle\Entity\AddressObject as FiasAddressObject;
 
 class AddressObject extends FiasAddressObject
@@ -63,7 +64,7 @@ class AddressObject extends FiasAddressObject
      */
     public function scopeOnlyCities($query)
     {
-        return $query->whereIn('aolevel', [4, 6])->where('actstatus', 1);
+        return $query->whereIn('aolevel', [1, 4, 6])->where('actstatus', 1);
     }
 
     /**
@@ -92,7 +93,9 @@ class AddressObject extends FiasAddressObject
 
     public function houses()
     {
-        return $this->hasMany(House::class, 'aoguid', 'aoguid')->distinct();
+        return $this->hasMany(House::class, 'aoguid', 'aoguid')
+            ->where('enddate', '>=', Carbon::now()->toDateString())
+            ->distinct();
     }
 
     public function parent()

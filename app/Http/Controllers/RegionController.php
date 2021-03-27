@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\RegionIndexResource;
 use App\Http\Resources\RegionResource;
 use App\Models\AddressObject;
 use App\Models\Region;
@@ -22,7 +23,7 @@ class RegionController extends Controller
     public function index(): ResourceCollection
     {
         $regions = AddressObject::onlyRegions()
-        ->with(['cities', 'areas'])
+        ->with(['cities', 'areas', 'streets'])
         ->get();
         return RegionResource::collection($regions);
 
@@ -41,7 +42,7 @@ class RegionController extends Controller
      */
     public function show(string $uuid): RegionResource
     {
-        $region = AddressObject::onlyRegions()->with(['cities', 'areas'])->findOrFail($uuid);
+        $region = AddressObject::onlyRegions()->with(['cities', 'areas', 'streets'])->findOrFail($uuid);
 
         return new RegionResource($region);
     }

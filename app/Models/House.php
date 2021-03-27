@@ -21,8 +21,9 @@ class House extends \Liquetsoft\Fias\Laravel\LiquetsoftFiasBundle\Entity\House
 
     public function flats()
     {
-        return $this->hasMany(Flat::class, 'houseguid', 'houseguid' );
+        return $this->hasMany(Flat::class, 'houseguid', 'houseguid');
     }
+
     public function addressObject()
     {
         return $this->belongsTo(AddressObject::class, 'aoguid', 'aoguid');
@@ -38,8 +39,11 @@ class House extends \Liquetsoft\Fias\Laravel\LiquetsoftFiasBundle\Entity\House
     public function getFullHousenumAttribute()
     {
         $num = $this->housenum;
-        if($this->strucnum) $num .= ", стр. {$this->strucnum}";
-        if($this->buildnum) $num .= ", к. {$this->buildnum}";
+        if ($this->strucnum) {
+            if ( $this->housenum) $num .= ", ";
+            $num .= "стр. {$this->strucnum}";
+        }
+        if ($this->buildnum) $num .= ", к. {$this->buildnum}";
         return $num;
     }
 
